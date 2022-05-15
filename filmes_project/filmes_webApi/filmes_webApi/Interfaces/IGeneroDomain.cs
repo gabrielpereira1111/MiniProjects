@@ -9,5 +9,7 @@ namespace filmes_webApi.Interfaces
     interface IGeneroDomain
     {
         void Create(GeneroDomain genero);
+        List<GeneroDomain> ReadAll();
+        GeneroDomain GetById(int id);
     }
 }
