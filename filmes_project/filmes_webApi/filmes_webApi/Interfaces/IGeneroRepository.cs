@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace filmes_webApi.Interfaces
 {
-    interface IGeneroDomain
+    interface IGeneroRepository
     {
         void Create(GeneroDomain genero);
         List<GeneroDomain> ReadAll();
