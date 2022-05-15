@@ -11,5 +11,8 @@ namespace filmes_webApi.Interfaces
         void Create(GeneroDomain genero);
         List<GeneroDomain> ReadAll();
         GeneroDomain GetById(int id);
+        void UpdateBody(GeneroDomain genero);
+        void UpdateUrl(GeneroDomain genero, int id);
+        void Delete(int id);
     }
 }
