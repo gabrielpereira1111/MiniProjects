@@ -8,9 +8,13 @@ namespace filmes_webApi.Interfaces
 {
     interface IFilmeRepository
     {
+        
         void Create(FilmeDomain filme);
         List<FilmeDomain> Read();
         FilmeDomain GetById(int id);
+        void Update(FilmeDomain filme);
+        void UpdateUrl(FilmeDomain filme, int id);
+        void Delete(int id);
 
     }
 }
