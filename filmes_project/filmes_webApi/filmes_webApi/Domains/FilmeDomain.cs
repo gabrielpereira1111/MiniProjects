@@ -10,5 +10,6 @@ namespace filmes_webApi.Domains
         public int idFilme { get; set; }
         public string Nome { get; set; }
         public int idGenero { get; set; }
+        public GeneroDomain Genero { get; set; }
     }
 }
