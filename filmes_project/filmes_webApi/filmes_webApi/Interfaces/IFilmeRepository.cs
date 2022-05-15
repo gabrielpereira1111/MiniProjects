@@ -10,5 +10,7 @@ namespace filmes_webApi.Interfaces
     {
         void Create(FilmeDomain filme);
         List<FilmeDomain> Read();
+        FilmeDomain GetById(int id);
+
     }
 }
