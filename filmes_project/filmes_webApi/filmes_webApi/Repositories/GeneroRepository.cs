@@ -28,6 +28,7 @@ namespace filmes_webApi.Repositories
         public List<GeneroDomain> ReadAll()
         {
             List<GeneroDomain> listaGenero = new List<GeneroDomain>();
+            return listaGenero;
         }
 
         public void UpdateBody(GeneroDomain genero)
