@@ -34,7 +34,7 @@ namespace filmes_webApi.Repositories
             {
                 string queryReadAll = "SELECT idGenero, nome FROM generos";
                 connection.Open();
-                using(SqlCommand command = new SqlCommand()
+                using (SqlCommand command = new SqlCommand(queryReadAll, connection))
                 {
 
                 };
