@@ -45,6 +45,8 @@ namespace filmes_webApi.Repositories
                             idGenero = Convert.ToInt32(rdr[0]),
                             Nome = rdr[1].ToString()
                         };
+
+                        listaGenero.Add(genero);
                     }
                 };
             };
