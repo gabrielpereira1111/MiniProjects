@@ -2,6 +2,7 @@
 using filmes_webApi.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,6 +29,17 @@ namespace filmes_webApi.Repositories
         public List<GeneroDomain> ReadAll()
         {
             List<GeneroDomain> listaGenero = new List<GeneroDomain>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryReadAll = "SELECT idGenero, nome FROM generos";
+                connection.Open();
+                using(SqlCommand command = new SqlCommand()
+                {
+
+                };
+            };
+
             return listaGenero;
         }
 
