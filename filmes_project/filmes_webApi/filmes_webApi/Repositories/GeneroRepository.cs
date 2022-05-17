@@ -36,7 +36,12 @@ namespace filmes_webApi.Repositories
                 connection.Open();
                 using (SqlCommand command = new SqlCommand(queryReadAll, connection))
                 {
+                    SqlDataReader rdr = command.ExecuteReader();
 
+                    while (rdr.Read())
+                    {
+
+                    }
                 };
             };
 
