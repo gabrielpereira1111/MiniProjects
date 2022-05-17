@@ -9,6 +9,7 @@ namespace filmes_webApi.Repositories
 {
     public class GeneroRepository : IGeneroRepository
     {
+        private string connectionString = @"Data Source=DSK_PHD001\SQLEXPRESS; initial catalog=BD_Teste; user Id=sa; pwd=GPre*112002";
         public void Create(GeneroDomain genero)
         {
             throw new NotImplementedException();
