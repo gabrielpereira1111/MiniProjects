@@ -40,7 +40,11 @@ namespace filmes_webApi.Repositories
 
                     while (rdr.Read())
                     {
-
+                        GeneroDomain genero = new GeneroDomain()
+                        {
+                            idGenero = Convert.ToInt32(rdr[0]),
+                            Nome = rdr[1].ToString()
+                        };
                     }
                 };
             };
