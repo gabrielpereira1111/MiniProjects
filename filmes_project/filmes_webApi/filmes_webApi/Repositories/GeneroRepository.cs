@@ -27,7 +27,7 @@ namespace filmes_webApi.Repositories
 
         public List<GeneroDomain> ReadAll()
         {
-            throw new NotImplementedException();
+            List<GeneroDomain> listaGenero = new List<GeneroDomain>();
         }
 
         public void UpdateBody(GeneroDomain genero)
