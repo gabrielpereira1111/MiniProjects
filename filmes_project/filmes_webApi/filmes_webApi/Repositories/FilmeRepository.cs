@@ -15,7 +15,7 @@ namespace filmes_webApi.Repositories
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string queryCreate = $"INSERT INTO filmes (nome, idGenero) VALUES ('{filme.Nome}', {filme.idGenero})";
+                string queryCreate = $"INSERT INTO filmes (nome, idGenero, idFilme) VALUES ('{filme.Nome}', {filme.idGenero}, {filme.idFilme})";
                 connection.Open();
 
                 using (SqlCommand command = new SqlCommand(queryCreate, connection))
