@@ -29,9 +29,19 @@ namespace filmes_webApi.Repositories
         public List<FilmeDomain> Read()
         {
             List<FilmeDomain> listaFilmes = new List<FilmeDomain>();
-            using (SqlConnection connection = new SqlConnection())
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                string queryReadAll = "select idFilme, filmes.nome AS 'Filme', filmes.idGenero ,generos.nome AS 'Genero' from filmes inner join generos on filmes.idGenero = generos.idGenero";
+                connection.Open();
 
+                using (SqlCommand command = new SqlCommand(queryReadAll,connection))
+                {
+                    SqlDataReader rdr = command.ExecuteReader();
+                    while (rdr.Read())
+                    {
+
+                    }
+                }
             }
             return listaFilmes;
         }
