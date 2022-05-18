@@ -37,9 +37,20 @@ namespace filmes_webApi.Repositories
                 using (SqlCommand command = new SqlCommand(queryReadAll,connection))
                 {
                     SqlDataReader rdr = command.ExecuteReader();
+                    
                     while (rdr.Read())
                     {
-
+                        FilmeDomain filme = new FilmeDomain()
+                        {
+                            idFilme = Convert.ToInt32(rdr[0]),
+                            Nome = rdr[1].ToString(),
+                            idGenero = Convert.ToInt32(rdr[2]),
+                            Genero = new GeneroDomain()
+                            {
+                                Nome = rdr[3].ToString(),
+                                idGenero = Convert.ToInt32(rdr[2])
+                            }
+                        };
                     }
                 }
             }
