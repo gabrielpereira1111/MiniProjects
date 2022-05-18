@@ -1,4 +1,5 @@
 ﻿using filmes_webApi.Interfaces;
+using filmes_webApi.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,5 +15,9 @@ namespace filmes_webApi.Controllers
     public class FilmesController : ControllerBase
     {
         private IFilmeRepository _FilmeRepository { get; set; }
+        public FilmesController()
+        {
+            _FilmeRepository = new FilmeRepository();
+        }
     }
 }
