@@ -1,4 +1,5 @@
-﻿using filmes_webApi.Interfaces;
+﻿using filmes_webApi.Domains;
+using filmes_webApi.Interfaces;
 using filmes_webApi.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,13 @@ namespace filmes_webApi.Controllers
         public FilmesController()
         {
             _FilmeRepository = new FilmeRepository();
+        }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            List<FilmeDomain> listaFilmes = _FilmeRepository.Read();
+            return Ok(listaFilmes);
         }
     }
 }

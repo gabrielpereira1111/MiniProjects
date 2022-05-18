@@ -27,5 +27,12 @@ namespace filmes_webApi.Controllers
             List<GeneroDomain> listaGeneros = _GeneroRepository.ReadAll();
             return Ok(listaGeneros);
         }
+
+        [HttpPost]
+        public IActionResult Post(GeneroDomain genero)
+        {
+            _GeneroRepository.Create(genero);
+            return StatusCode(201);
+        }
     }
 }
