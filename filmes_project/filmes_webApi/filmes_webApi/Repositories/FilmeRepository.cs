@@ -26,7 +26,8 @@ namespace filmes_webApi.Repositories
 
         public List<FilmeDomain> Read()
         {
-            throw new NotImplementedException();
+            List<FilmeDomain> listaFilmes = new List<FilmeDomain>();
+            return listaFilmes
         }
 
         public void Update(FilmeDomain filme)
