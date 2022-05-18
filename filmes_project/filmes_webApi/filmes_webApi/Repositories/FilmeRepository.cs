@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace filmes_webApi.Repositories
 {
-    private string connectionString = "";
     public class FilmeRepository : IFilmeRepository
     {
+        private string connectionString = @"Data Source=DSK_PHD001\SQLEXPRESS; initial catalog=BD_Teste; user Id=sa; pwd=GPre*112002";
         public void Create(FilmeDomain filme)
         {
             throw new NotImplementedException();
