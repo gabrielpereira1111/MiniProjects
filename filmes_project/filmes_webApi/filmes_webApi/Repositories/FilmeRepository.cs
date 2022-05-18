@@ -2,11 +2,13 @@
 using filmes_webApi.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace filmes_webApi.Repositories
 {
+    private string connectionString = "";
     public class FilmeRepository : IFilmeRepository
     {
         public void Create(FilmeDomain filme)
@@ -27,7 +29,11 @@ namespace filmes_webApi.Repositories
         public List<FilmeDomain> Read()
         {
             List<FilmeDomain> listaFilmes = new List<FilmeDomain>();
-            return listaFilmes
+            using (SqlConnection connection = new SqlConnection())
+            {
+
+            }
+            return listaFilmes;
         }
 
         public void Update(FilmeDomain filme)
