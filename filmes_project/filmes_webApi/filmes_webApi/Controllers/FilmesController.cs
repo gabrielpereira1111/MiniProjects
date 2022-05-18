@@ -27,5 +27,12 @@ namespace filmes_webApi.Controllers
             List<FilmeDomain> listaFilmes = _FilmeRepository.Read();
             return Ok(listaFilmes);
         }
+
+        [HttpPost]
+        public IActionResult Post(FilmeDomain filme)
+        {
+            _FilmeRepository.Create(filme);
+            return StatusCode(201);
+        }
     }
 }
