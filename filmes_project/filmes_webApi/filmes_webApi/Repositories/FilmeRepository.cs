@@ -30,7 +30,16 @@ namespace filmes_webApi.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryDelete = "DELETE FROM filmes WHERE idFilme = @idFilme";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(queryDelete, connection))
+                {
+                    command.Parameters.AddWithValue("@idFilme", id);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         public FilmeDomain GetById(int id)

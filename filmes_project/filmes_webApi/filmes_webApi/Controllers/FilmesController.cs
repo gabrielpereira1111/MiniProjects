@@ -34,5 +34,12 @@ namespace filmes_webApi.Controllers
             _FilmeRepository.Create(filme);
             return StatusCode(201);
         }
+
+        [HttpDelete("delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            _FilmeRepository.Delete(id);
+            return StatusCode(204);
+        }
     }
 }
