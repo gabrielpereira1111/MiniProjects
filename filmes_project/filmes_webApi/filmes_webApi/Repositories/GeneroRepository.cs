@@ -10,7 +10,7 @@ namespace filmes_webApi.Repositories
 {
     public class GeneroRepository : IGeneroRepository
     {
-        private string connectionString = @"Data Source=DSK_PHD001\SQLEXPRESS; initial catalog=BD_Teste; user Id=sa; pwd=GPre*112002";
+        private string connectionString = @"Data Source=DSK_PHD001\SQLEXPRESS; initial catalog=BD_Teste; user Id=sa; pwd=123456";
         public void Create(GeneroDomain genero)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -27,7 +27,16 @@ namespace filmes_webApi.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryDelete = $"DELETE FROM generos WHERE IdGeneros = {id}";
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand())
+                {
+
+                }
+            }
         }
 
         public GeneroDomain GetById(int id)

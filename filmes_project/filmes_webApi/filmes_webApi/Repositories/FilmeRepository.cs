@@ -10,7 +10,7 @@ namespace filmes_webApi.Repositories
 {
     public class FilmeRepository : IFilmeRepository
     {
-        private string connectionString = @"Data Source=DSK_PHD001\SQLEXPRESS; initial catalog=BD_Teste; user Id=sa; pwd=GPre*112002";
+        private string connectionString = @"Data Source=DSK_PHD001\SQLEXPRESS; initial catalog=BD_Teste; user Id=sa; pwd=123456";
         public void Create(FilmeDomain filme)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
