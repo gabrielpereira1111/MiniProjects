@@ -15,11 +15,13 @@ namespace filmes_webApi.Repositories
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string queryCreate = $"INSERT INTO generos (idGenero, nome) values ({genero.idGenero} , '{genero.Nome}')";
+                string queryCreate = $"INSERT INTO generos (idGenero, nome) values (@idGenero , @nomeGenero)";
                 connection.Open();
                 
                 using (SqlCommand command = new SqlCommand(queryCreate,connection))
                 {
+                    command.Parameters.AddWithValue("@idGenero", genero.idGenero);
+                    command.Parameters.AddWithValue("@nomeGenero", genero.Nome);
                     command.ExecuteNonQuery();
                 }
             }
@@ -29,12 +31,13 @@ namespace filmes_webApi.Repositories
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string queryDelete = $"DELETE FROM generos WHERE IdGeneros = {id}";
+                string queryDelete = $"DELETE FROM generos WHERE IdGenero = @id";
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand())
+                using (SqlCommand command = new SqlCommand(queryDelete, connection))
                 {
-
+                    command.Parameters.AddWithValue("@id", id);
+                    command.ExecuteNonQuery();
                 }
             }
         }

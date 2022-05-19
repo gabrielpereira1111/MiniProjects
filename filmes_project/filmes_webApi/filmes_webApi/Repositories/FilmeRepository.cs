@@ -15,11 +15,14 @@ namespace filmes_webApi.Repositories
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string queryCreate = $"INSERT INTO filmes (nome, idGenero, idFilme) VALUES ('{filme.Nome}', {filme.idGenero}, {filme.idFilme})";
+                string queryCreate = $"INSERT INTO filmes (nome, idGenero, idFilme) VALUES (@Nome, @idGenero, @idFilme)";
                 connection.Open();
 
                 using (SqlCommand command = new SqlCommand(queryCreate, connection))
                 {
+                    command.Parameters.AddWithValue("@Nome", filme.Nome);
+                    command.Parameters.AddWithValue("@idGenero", filme.idGenero);
+                    command.Parameters.AddWithValue("@idFilme", filme.idFilme);
                     command.ExecuteNonQuery();
                 }
             }

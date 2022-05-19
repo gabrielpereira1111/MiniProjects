@@ -34,5 +34,12 @@ namespace filmes_webApi.Controllers
             _GeneroRepository.Create(genero);
             return StatusCode(201);
         }
+
+        [HttpDelete("delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            _GeneroRepository.Delete(id);
+            return StatusCode(204);
+        }
     }
 }
