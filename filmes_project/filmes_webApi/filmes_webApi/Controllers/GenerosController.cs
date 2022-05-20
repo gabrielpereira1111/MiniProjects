@@ -66,5 +66,23 @@ namespace filmes_webApi.Controllers
             _GeneroRepository.UpdateBody(genero);
             return StatusCode(201);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult PutUrl(GeneroDomain genero, int id)
+        {
+            GeneroDomain generoBuscado = _GeneroRepository.GetById(id);
+            if(generoBuscado == null)
+            {
+                return NotFound(
+                new
+                {
+                    mensagem="[ERRO] Gênero não encontrado",
+                    erro=true
+                });
+            }
+
+            _GeneroRepository.UpdateUrl(genero, id);
+            return Ok(201);
+        }
     }
 }
