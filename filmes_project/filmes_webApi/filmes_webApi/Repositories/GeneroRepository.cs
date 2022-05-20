@@ -117,7 +117,19 @@ namespace filmes_webApi.Repositories
 
         public void UpdateUrl(GeneroDomain genero, int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryUpdate = "UPDATE generos SET nome = @nomeGenero WHERE idGenero = @idGenero";
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(queryUpdate, connection))
+                {
+                    command.Parameters.AddWithValue("@nomeGenero", genero.Nome);
+                    command.Parameters.AddWithValue("@idGenero", id);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
