@@ -37,7 +37,8 @@ namespace filmes_webApi.Controllers
                 return NotFound(
                         new
                         {
-                            mensagem = "[ERRO] Gênero não encontrado"
+                            mensagem = "[ERRO] Gênero não encontrado",
+                            erro = true
                         }
                     );
             }
@@ -61,7 +62,7 @@ namespace filmes_webApi.Controllers
 
         [HttpPut]
         public IActionResult PutBody(GeneroDomain genero)
-        {
+        { 
             _GeneroRepository.UpdateBody(genero);
             return StatusCode(201);
         }
