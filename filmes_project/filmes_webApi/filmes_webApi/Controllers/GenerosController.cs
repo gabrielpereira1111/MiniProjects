@@ -28,6 +28,23 @@ namespace filmes_webApi.Controllers
             return Ok(listaGeneros);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            GeneroDomain generoBuscado = _GeneroRepository.GetById(id);
+            if(generoBuscado == null)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "[ERRO] Gênero não encontrado"
+                        }
+                    );
+            }
+
+            return Ok(generoBuscado);
+        }
+
         [HttpPost]
         public IActionResult Post(GeneroDomain genero)
         {
@@ -40,6 +57,13 @@ namespace filmes_webApi.Controllers
         {
             _GeneroRepository.Delete(id);
             return StatusCode(204);
+        }
+
+        [HttpPut]
+        public IActionResult PutBody(GeneroDomain genero)
+        {
+            _GeneroRepository.UpdateBody(genero);
+            return StatusCode(201);
         }
     }
 }
