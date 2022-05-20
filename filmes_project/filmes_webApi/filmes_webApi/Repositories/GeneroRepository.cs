@@ -44,7 +44,30 @@ namespace filmes_webApi.Repositories
 
         public GeneroDomain GetById(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryGetById = "SELECT idGenero, nome FROM generos WHERE idGenero = @id";
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(queryGetById, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    SqlDataReader rdr = command.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        GeneroDomain genero = new GeneroDomain()
+                        {
+                            idGenero = Convert.ToInt32(rdr["idGenero"]),
+                            Nome = rdr["nome"].ToString()
+                        };
+
+                        return genero;
+                    }
+
+                    return null;
+                    
+                }
+            }
         }
 
         public List<GeneroDomain> ReadAll()
@@ -77,7 +100,19 @@ namespace filmes_webApi.Repositories
 
         public void UpdateBody(GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryUpdate = "UPDATE generos SET nome = @nomeGenero WHERE idGenero = @idGenero";
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(queryUpdate, connection))
+                {
+                    command.Parameters.AddWithValue("@nomeGenero", genero.Nome);
+                    command.Parameters.AddWithValue("@idGenero", genero.idGenero);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
         public void UpdateUrl(GeneroDomain genero, int id)
