@@ -62,9 +62,16 @@ namespace filmes_webApi.Controllers
 
         [HttpPut]
         public IActionResult PutBody(GeneroDomain genero)
-        { 
-            _GeneroRepository.UpdateBody(genero);
-            return StatusCode(201);
+        {
+            try
+            {
+                _GeneroRepository.UpdateBody(genero);
+                return StatusCode(201);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error);
+            }
         }
 
         [HttpPut("{id}")]
@@ -81,8 +88,15 @@ namespace filmes_webApi.Controllers
                 });
             }
 
-            _GeneroRepository.UpdateUrl(genero, id);
-            return Ok(201);
+            try
+            {
+                _GeneroRepository.UpdateUrl(genero, id);
+                return StatusCode(201);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error);
+            }
         }
     }
 }
