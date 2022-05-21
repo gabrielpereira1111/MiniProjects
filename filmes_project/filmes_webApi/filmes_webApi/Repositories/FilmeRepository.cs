@@ -44,7 +44,37 @@ namespace filmes_webApi.Repositories
 
         public FilmeDomain GetById(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryGetById = "select idFilme, filmes.nome AS 'Filme', filmes.idGenero, generos.nome AS 'Gênero' from filmes inner join generos on filmes.idGenero = generos.idGenero where idFilme = @idFilme";
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(queryGetById, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (!reader.Read())
+                    {
+                        return null;
+                    }
+
+                    FilmeDomain filme = new FilmeDomain()
+                    {
+                        idFilme = Convert.ToInt32(reader["idFilme"]),
+                        Nome = reader["Filme"].ToString(),
+                        idGenero = Convert.ToInt32(reader["idGenero"]),
+                        Genero = new GeneroDomain()
+                        {
+                            idGenero = Convert.ToInt32(reader["idGenero"]),
+                            Nome = reader["Gênero"].ToString()
+                        }
+                    };
+                    
+                    return filme;
+                }
+            }
+
+
         }
 
         public List<FilmeDomain> Read()
