@@ -60,5 +60,31 @@ namespace filmes_webApi.Controllers
 
             return Ok(filmeBuscado);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult PutUrl(FilmeDomain filme , int id)
+        {
+            FilmeDomain filmeBuscado = _FilmeRepository.GetById(id);
+            if(filmeBuscado == null)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "[ERRO] Filme não encontrado",
+                            erro = true
+                        }
+                    );
+            }
+
+            try
+            {
+                _FilmeRepository.UpdateUrl(filme , id);
+                return StatusCode(201);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error);
+            }
+        }
     }
 }

@@ -111,14 +111,20 @@ namespace filmes_webApi.Repositories
             return listaFilmes;
         }
 
-        public void Update(FilmeDomain filme)
-        {
-            throw new NotImplementedException();
-        }
-
         public void UpdateUrl(FilmeDomain filme, int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string queryUpdateUrl = "UPDATE filmes SET nome = @nomeFilme WHERE idFilme = @idFilme";
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(queryUpdateUrl, connection))
+                {
+                    command.Parameters.AddWithValue("@nomeFilme", filme.Nome);
+                    command.Parameters.AddWithValue("@idFilme", id);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
