@@ -41,5 +41,24 @@ namespace filmes_webApi.Controllers
             _FilmeRepository.Delete(id);
             return StatusCode(204);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            FilmeDomain filmeBuscado = _FilmeRepository.GetById(id);
+            
+            if (filmeBuscado == null)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "[ERRO] Filme não encontrado",
+                            erro = true
+                        }
+                    );
+            }
+
+            return Ok(filmeBuscado);
+        }
     }
 }

@@ -51,6 +51,7 @@ namespace filmes_webApi.Repositories
 
                 using (SqlCommand command = new SqlCommand(queryGetById, connection))
                 {
+                    command.Parameters.AddWithValue("@idFilme", id);
                     SqlDataReader reader = command.ExecuteReader();
 
                     if (!reader.Read())
