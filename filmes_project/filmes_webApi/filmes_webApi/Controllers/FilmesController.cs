@@ -61,7 +61,7 @@ namespace filmes_webApi.Controllers
             return Ok(filmeBuscado);
         }
 
-        [HttpPut("{id}")]
+        [HttpPatch("{id}")]
         public IActionResult PutUrl(FilmeDomain filme , int id)
         {
             FilmeDomain filmeBuscado = _FilmeRepository.GetById(id);
@@ -76,15 +76,10 @@ namespace filmes_webApi.Controllers
                     );
             }
 
-            try
-            {
-                _FilmeRepository.UpdateUrl(filme , id);
-                return StatusCode(201);
-            }
-            catch (Exception error)
-            {
-                return BadRequest(error);
-            }
+            
+            _FilmeRepository.UpdateUrl(filme , id);
+            return StatusCode(201);
+            
         }
     }
 }

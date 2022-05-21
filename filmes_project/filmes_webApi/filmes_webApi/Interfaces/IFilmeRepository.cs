@@ -12,7 +12,6 @@ namespace filmes_webApi.Interfaces
         void Create(FilmeDomain filme);
         List<FilmeDomain> Read();
         FilmeDomain GetById(int id);
-        void Update(FilmeDomain filme);
         void UpdateUrl(FilmeDomain filme, int id);
         void Delete(int id);
 

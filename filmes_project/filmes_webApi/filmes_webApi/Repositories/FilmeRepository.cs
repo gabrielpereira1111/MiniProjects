@@ -115,13 +115,45 @@ namespace filmes_webApi.Repositories
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string queryUpdateUrl = "UPDATE filmes SET nome = @nomeFilme WHERE idFilme = @idFilme";
+                string queryUpdateUrl;
+
+                if (filme.idGenero == null)
+                {
+                    queryUpdateUrl = "update filmes set nome = @nomeFilme where idFilme = @idFilme";
+                }
+                else
+                {
+                    if(filme.Nome == null)
+                    {
+                        queryUpdateUrl = "update filmes set idGenero = @idGenero where idFilme = @idFilme";
+                    }
+                    else
+                    {
+                        queryUpdateUrl = "update filmes set nome = @nomeFilme, idGenero = @idGenero where idFilme = @idFilme";
+                    }
+                }
+
                 connection.Open();
 
                 using (SqlCommand command = new SqlCommand(queryUpdateUrl, connection))
                 {
-                    command.Parameters.AddWithValue("@nomeFilme", filme.Nome);
                     command.Parameters.AddWithValue("@idFilme", id);
+                    if(filme.idGenero != null && filme.Nome != null)
+                    {
+                        command.Parameters.AddWithValue("@nomeFilme", filme.Nome);
+                        command.Parameters.AddWithValue("@idGenero", filme.idGenero);
+                    }
+                    else
+                    {
+                        if(filme.Nome != null)
+                        {
+                            command.Parameters.AddWithValue("@nomeFilme", filme.Nome);
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@idGenero", filme.idGenero);
+                        }
+                    }
                     command.ExecuteNonQuery();
                 }
             }
