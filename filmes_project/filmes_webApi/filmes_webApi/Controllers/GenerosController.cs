@@ -1,6 +1,7 @@
 ﻿using filmes_webApi.Domains;
 using filmes_webApi.Interfaces;
 using filmes_webApi.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,6 +14,7 @@ namespace filmes_webApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class GenerosController : ControllerBase
     {
         private IGeneroRepository _GeneroRepository { get; set; }
@@ -47,6 +49,7 @@ namespace filmes_webApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "True")]
         public IActionResult Post(GeneroDomain genero)
         {
             _GeneroRepository.Create(genero);
@@ -54,6 +57,7 @@ namespace filmes_webApi.Controllers
         }
 
         [HttpDelete("delete/{id}")]
+        [Authorize(Roles = "True")]
         public IActionResult Delete(int id)
         {
             _GeneroRepository.Delete(id);
@@ -61,6 +65,7 @@ namespace filmes_webApi.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "True")]
         public IActionResult PutBody(GeneroDomain genero)
         {
             try
@@ -75,6 +80,7 @@ namespace filmes_webApi.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "True")]
         public IActionResult PutUrl(GeneroDomain genero, int id)
         {
             GeneroDomain generoBuscado = _GeneroRepository.GetById(id);

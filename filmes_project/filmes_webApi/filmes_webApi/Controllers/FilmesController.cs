@@ -1,6 +1,7 @@
 ﻿using filmes_webApi.Domains;
 using filmes_webApi.Interfaces;
 using filmes_webApi.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,6 +14,7 @@ namespace filmes_webApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FilmesController : ControllerBase
     {
         private IFilmeRepository _FilmeRepository { get; set; }
@@ -29,6 +31,7 @@ namespace filmes_webApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "True")]
         public IActionResult Post(FilmeDomain filme)
         {
             _FilmeRepository.Create(filme);
@@ -36,6 +39,7 @@ namespace filmes_webApi.Controllers
         }
 
         [HttpDelete("delete/{id}")]
+        [Authorize(Roles = "True")]
         public IActionResult Delete(int id)
         {
             _FilmeRepository.Delete(id);
@@ -62,6 +66,7 @@ namespace filmes_webApi.Controllers
         }
 
         [HttpPatch("{id}")]
+        [Authorize(Roles = "True")]
         public IActionResult PutUrl(FilmeDomain filme , int id)
         {
             FilmeDomain filmeBuscado = _FilmeRepository.GetById(id);
