@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace filmes_webApi.Controllers
@@ -27,12 +29,20 @@ namespace filmes_webApi.Controllers
         {
             UsuarioDomain usuarioBuscado = _usuarioRepository.Login(usuario.Email, usuario.Senha);
 
-            if (usuarioBuscado == null)
+            if (usuarioBuscado != null)
             {
-                return NotFound("Email e/ou senha incorretos!");
+               // return Ok(usuarioBuscado);
+
+               var claims = new[]
+               {
+                   new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.idUsuario.ToString()),
+                   new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
+                   new Claim(ClaimTypes.Role, usuarioBuscado.Permissao.ToString()),
+                   new Claim("Role", usuarioBuscado.Permissao.ToString())
+               };
             }
 
-            return Ok(usuarioBuscado);
+            return NotFound("Email e/ou senha incorretos!");
 
         }
     }
