@@ -11,6 +11,11 @@ namespace filmes_webApi.Repositories
     public class GeneroRepository : IGeneroRepository
     {
         private string connectionString = @"Data Source=DSK_PHD001\SQLEXPRESS; initial catalog=BD_Teste; user Id=sa; pwd=123456";
+        
+        /// <summary>
+        /// Cria um gênero
+        /// </summary>
+        /// <param name="genero">Dados do gênero que serão cadastrados</param>
         public void Create(GeneroDomain genero)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -27,6 +32,10 @@ namespace filmes_webApi.Repositories
             }
         }
 
+        /// <summary>
+        /// Deleta um gênero
+        /// </summary>
+        /// <param name="id">id do gênero que será deletado</param>
         public void Delete(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))

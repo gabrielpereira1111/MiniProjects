@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>filmes_webApi</name>
+    </assembly>
+    <members>
+        <member name="M:filmes_webApi.Controllers.FilmesController.Get">
+            <summary>
+            Lista todos os filmes
+            </summary>
+            <returns>Retorna uma lista de filmes</returns>
+        </member>
+        <member name="M:filmes_webApi.Repositories.GeneroRepository.Create(filmes_webApi.Domains.GeneroDomain)">
+            <summary>
+            Cria um gênero
+            </summary>
+            <param name="genero">Dados do gênero que serão cadastrados</param>
+        </member>
+        <member name="M:filmes_webApi.Repositories.GeneroRepository.Delete(System.Int32)">
+            <summary>
+            Deleta um gênero
+            </summary>
+            <param name="id">id do gênero que será deletado</param>
+        </member>
+    </members>
+</doc>

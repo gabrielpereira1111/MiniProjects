@@ -23,6 +23,10 @@ namespace filmes_webApi.Controllers
             _FilmeRepository = new FilmeRepository();
         }
 
+        /// <summary>
+        /// Lista todos os filmes
+        /// </summary>
+        /// <returns>Retorna uma lista de filmes</returns>
         [HttpGet]
         public IActionResult Get()
         {
