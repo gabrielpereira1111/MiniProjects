@@ -32,30 +32,29 @@ namespace filmes_webApi.Controllers
 
             if (usuarioBuscado != null)
             {
-               // return Ok(usuarioBuscado);
 
-               // Payload
-               var claims = new[]
-               {
-                   new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.idUsuario.ToString()),
-                   new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
-                   new Claim(ClaimTypes.Role, usuarioBuscado.Permissao.ToString()),
-                   new Claim("Role", usuarioBuscado.Permissao.ToString())
-               };
+                // Payload
+                var claim = new[]
+                {
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.idUsuario.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.Permissao.ToString()),
+                    new Claim("Role", usuarioBuscado.Permissao.ToString())
+                };
 
-                // Key
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("minha-chave-segura-filmes"));
+                //Key
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("chave-secreta-filmes"));
 
-                // Signature
+                //Signature
                 var signature = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 //Token
                 var myToken = new JwtSecurityToken(
-                        issuer: "filmes_webApi",
-                        audience: "filmes_webApi",
-                        claims: claims,
-                        expires: DateTime.Now.AddMinutes(30),
-                        signingCredentials: signature
+                        issuer : "filmes_webApi",
+                        audience : "filmes_webApi",
+                        claims : claim,
+                        expires : DateTime.Now.AddMinutes(30),
+                        signingCredentials : signature
                     );
 
                 return Ok(
@@ -64,7 +63,6 @@ namespace filmes_webApi.Controllers
                             token = new JwtSecurityTokenHandler().WriteToken(myToken)
                         }
                     );
-
                 
             }
 
