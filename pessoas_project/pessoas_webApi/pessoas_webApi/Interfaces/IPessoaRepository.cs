@@ -7,7 +7,7 @@ namespace pessoas_webApi.Interfaces
         public void Create(Pessoa pessoa);
         public List<Pessoa> ReadAll();
         public Pessoa GetById(int id);
-        public void Update(Pessoa pessoa);
+        public void Update(Pessoa pessoa, int id);
         public void Delete(int id);
     }
 }
