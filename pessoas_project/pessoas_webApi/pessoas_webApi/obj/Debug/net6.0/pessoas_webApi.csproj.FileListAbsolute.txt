@@ -61,3 +61,7 @@ C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\o
 C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\obj\Debug\net6.0\pessoas_webApi.pdb
 C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\obj\Debug\net6.0\pessoas_webApi.genruntimeconfig.cache
 C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\obj\Debug\net6.0\ref\pessoas_webApi.dll
+C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
