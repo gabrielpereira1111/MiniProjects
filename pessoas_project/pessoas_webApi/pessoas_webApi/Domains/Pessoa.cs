@@ -7,15 +7,14 @@ namespace pessoas_webApi.Domains
     {
         public Pessoa()
         {
-            Cnhs = new HashSet<Cnh>();
             Emails = new HashSet<Email>();
             Telefones = new HashSet<Telefone>();
         }
 
         public int IdPessoa { get; set; }
-        public string? Nome { get; set; }
+        public string Nome { get; set; } = null!;
+        public string Cpf { get; set; } = null!;
 
-        public virtual ICollection<Cnh> Cnhs { get; set; }
         public virtual ICollection<Email> Emails { get; set; }
         public virtual ICollection<Telefone> Telefones { get; set; }
     }
