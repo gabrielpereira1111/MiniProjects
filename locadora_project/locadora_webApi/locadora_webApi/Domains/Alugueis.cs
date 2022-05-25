@@ -20,5 +20,13 @@ namespace locadora_webApi.Domains
         [Required(ErrorMessage = "Preenchimento do cliente que alugou obrigatório!")]
         [ForeignKey("IdCliente")]
         public Clientes Cliente { get; set; } = null!;
+
+        [Required(ErrorMessage = "A data do início do aluguél é obrigatória!")]
+        [Column(TypeName = "Date")]
+        public DateTime DataInicio { get; set; }
+
+        [Required(ErrorMessage = "A data do fim do aluguél é obrigatória!")]
+        [Column(TypeName = "Date")]
+        public DateTime DataFim { get; set; }
     }
 }
