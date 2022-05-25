@@ -46,5 +46,37 @@ namespace pessoas_webApi.Controllers
                 return BadRequest(error);
             }
         }
+
+        [HttpPost]
+        public IActionResult Post(Pessoa pessoa)
+        {
+            _pessoaRepository.Create(pessoa);
+            return StatusCode(201);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+
+            try
+            {
+                Pessoa pessoaBuscada = _pessoaRepository.GetById(id);   
+                
+                if (pessoaBuscada != null)
+                {
+                    _pessoaRepository.Delete(id);
+                    return NoContent();
+                }
+
+                return NotFound(new
+                {
+                    mensagem = "Pessoa não encontrada"
+                });
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error);
+            }
+        }
     }
 }

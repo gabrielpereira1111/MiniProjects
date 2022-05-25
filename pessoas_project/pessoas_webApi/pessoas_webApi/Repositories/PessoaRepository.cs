@@ -37,7 +37,15 @@ namespace pessoas_webApi.Repositories
 
         public void Update(Pessoa pessoa, int id)
         {
-            throw new NotImplementedException();
+            Pessoa pessoaBuscada = GetById(id);
+            
+            if (pessoaBuscada != null)
+            {
+                pessoaBuscada.Nome = pessoa.Nome;
+
+                ctx.Update(pessoaBuscada);
+                ctx.SaveChanges();
+            }
         }
     }
 }
