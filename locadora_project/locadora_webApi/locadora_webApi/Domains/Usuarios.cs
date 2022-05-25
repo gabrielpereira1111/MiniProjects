@@ -17,7 +17,7 @@ namespace locadora_webApi.Domains
 
         [Required(ErrorMessage = "Preenchimento de senha obrigatório!")]
         [DataType(DataType.Password)]
-        [Column(TypeName = "Senha")]
+        [Column(TypeName = "Varchar(200)")]
         [StringLength(30, MinimumLength = 10, ErrorMessage = "A senha precisa ter no mínimo 10 e no máximo 30 caracteres")]
         public string Senha { get; set; } = null!;
 
