@@ -18,7 +18,7 @@ namespace pessoas_webApi.Contexts
         }
 
         public virtual DbSet<Email> Emails { get; set; } = null!;
-        public virtual DbSet<Pessoa> Pessoas { get; set; } = null!;
+        public virtual DbSet<Pessoa> Pessoas { get; set; }
         public virtual DbSet<Telefone> Telefones { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

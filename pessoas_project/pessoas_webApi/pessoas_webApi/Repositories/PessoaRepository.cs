@@ -30,6 +30,11 @@ namespace pessoas_webApi.Repositories
             return ctx.Pessoas.Include(x => x.Emails).Include(x => x.Telefones).FirstOrDefault(x => x.IdPessoa == id);
         }
 
+        public Pessoa Login(string cpf)
+        {
+            return ctx.Pessoas.Find(cpf);
+        }
+
         public List<Pessoa> ReadAll()
         {
             return ctx.Pessoas.ToList();

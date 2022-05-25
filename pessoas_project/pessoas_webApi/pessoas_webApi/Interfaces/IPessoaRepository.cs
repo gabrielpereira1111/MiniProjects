@@ -4,10 +4,11 @@ namespace pessoas_webApi.Interfaces
 {
     public interface IPessoaRepository
     {
-        public void Create(Pessoa pessoa);
-        public List<Pessoa> ReadAll();
-        public Pessoa GetById(int id);
-        public void Update(Pessoa pessoa, int id);
-        public void Delete(int id);
+        void Create(Pessoa pessoa);
+        List<Pessoa> ReadAll();
+        Pessoa GetById(int id);
+        void Update(Pessoa pessoa, int id);
+        void Delete(int id);
+        Pessoa Login(string cpf);
     }
 }

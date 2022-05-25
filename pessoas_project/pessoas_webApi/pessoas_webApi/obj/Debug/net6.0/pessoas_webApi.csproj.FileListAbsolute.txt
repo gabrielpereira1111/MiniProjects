@@ -65,3 +65,5 @@ C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\b
 C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\PICHAU\Desktop\Projects\pessoas_project\pessoas_webApi\pessoas_webApi\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
