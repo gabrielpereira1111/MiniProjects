@@ -16,7 +16,13 @@ namespace pessoas_webApi.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            Pessoa pessoaBuscada = GetById(id);
+            
+            if (pessoaBuscada != null)
+            {
+                ctx.Pessoas.Remove(pessoaBuscada);
+                ctx.SaveChanges();
+            }
         }
 
         public Pessoa GetById(int id)
