@@ -25,6 +25,6 @@ namespace locadora_webApi.Domains
         [Column(TypeName = "Char(7)")]
         public string? Placa { get; set; }
 
-        public List<Alugueis> Alugueis { get; set; } = null!;
+        public Alugueis Aluguel { get; set; } = null!;
     }
 }

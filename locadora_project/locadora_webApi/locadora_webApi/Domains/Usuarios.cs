@@ -21,9 +21,11 @@ namespace locadora_webApi.Domains
         [StringLength(30, MinimumLength = 10, ErrorMessage = "A senha precisa ter no mínimo 10 e no máximo 30 caracteres")]
         public string Senha { get; set; } = null!;
 
-        public int IdTipoUsuario { get; set; }
+        public int IdTiposUsuario { get; set; }
 
-        [ForeignKey("TiposUsuario")]
+        [ForeignKey("IdTiposUsuario")]
         public TiposUsuario TiposUsuario { get; set; } = null!;
+
+        public Clientes Cliente { get; set; } = null!;
     }
 }
