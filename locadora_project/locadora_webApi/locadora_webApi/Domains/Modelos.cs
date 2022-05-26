@@ -10,6 +10,10 @@ namespace locadora_webApi.Domains
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int idModelo { get; set; }
 
+        [Column(TypeName = "Varchar(100)")]
+        [Required(ErrorMessage = "Nome do modelo obrigatório!")]
+        public string Nome { get; set; } = null!;
+
         [Required(ErrorMessage = "O nome do modelo deve ser preenchido")]
         [Column(TypeName = "Varchar(300)")]
         public string? Descricao { get; set; }

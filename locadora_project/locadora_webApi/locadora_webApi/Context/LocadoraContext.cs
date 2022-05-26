@@ -80,6 +80,62 @@ namespace locadora_webApi.Context
                         }
                     );
             });
+
+            modelBuilder.Entity<Empresas>(entity =>
+            {
+                entity.HasIndex(x => x.Nome).IsUnique();
+                entity.HasData(
+                        new Empresas()
+                        {
+                            Nome = "Locadora de Carros"
+                        }
+                    );
+            });
+
+            modelBuilder.Entity<Marcas>(entity =>
+            {
+                entity.HasIndex(x => x.Nome).IsUnique();
+                entity.HasData(
+                        new Marcas()
+                        {
+                            Nome = "Chevrolet"
+                        },
+                        new Marcas()
+                        {
+                            Nome = "Fiat"
+                        }
+                    );
+            });
+
+            modelBuilder.Entity<Modelos>(entity =>
+            {
+                entity.HasData(
+                        new Modelos()
+                        {
+                            Nome = "Argo",
+                            Descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac hendrerit velit. In ultrices non justo at accumsan. Etiam vitae augue posuere turpis condimentum cursus.",
+                            idMarca = 2
+                        },
+                        new Modelos()
+                        {
+                            Nome = "Cronos",
+                            Descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac hendrerit velit. In ultrices non justo at accumsan. Etiam vitae augue posuere turpis condimentum cursus.",
+                            idMarca = 2
+                        },
+                        new Modelos()
+                        {
+                            Nome = "Camaro",
+                            Descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac hendrerit velit. In ultrices non justo at accumsan. Etiam vitae augue posuere turpis condimentum cursus.",
+                            idMarca = 1
+                        },
+                        new Modelos()
+                        {
+                            Nome = "Cruzer",
+                            Descricao = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac hendrerit velit. In ultrices non justo at accumsan. Etiam vitae augue posuere turpis condimentum cursus.",
+                            idMarca = 1
+                        }
+                    );
+            });
         }
     }
 }
