@@ -136,6 +136,36 @@ namespace locadora_webApi.Context
                         }
                     );
             });
+
+            modelBuilder.Entity<Veiculos>(entity => {
+                entity.HasIndex(x => x.Placa).IsUnique();
+                entity.HasData(
+                        new Veiculos()
+                        {
+                            idEmpresa = 1,
+                            idModelo = 1,
+                            Placa = "5679203"
+                        },
+                        new Veiculos()
+                        {
+                            idEmpresa = 1,
+                            idModelo = 2,
+                            Placa = "6781314"
+                        },
+                        new Veiculos()
+                        {
+                            idEmpresa = 1,
+                            idModelo = 2,
+                            Placa = "6570103"
+                        },
+                        new Veiculos()
+                        {
+                            idEmpresa = 1,
+                            idModelo = 4,
+                            Placa = "7683029"
+                        }
+                    );
+            });
         }
     }
 }
