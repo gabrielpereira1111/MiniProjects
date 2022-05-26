@@ -24,8 +24,8 @@ namespace locadora_webApi.Domains
         public int IdTiposUsuario { get; set; }
 
         [ForeignKey("IdTiposUsuario")]
-        public TiposUsuario TiposUsuario { get; set; } = null!;
+        public TiposUsuario? TiposUsuario { get; set; }
 
-        public Clientes Cliente { get; set; } = null!;
+        public Clientes? Cliente { get; set; }
     }
 }

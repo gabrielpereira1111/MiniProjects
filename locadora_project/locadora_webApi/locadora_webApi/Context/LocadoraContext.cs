@@ -50,14 +50,14 @@ namespace locadora_webApi.Context
                         {
                             idUsuario = 1,
                             Email = "admin@email.com",
-                            Senha = "1234",
+                            Senha = "0123456789",
                             IdTiposUsuario = 1
                         },
                         new Usuarios()
                         {
                             idUsuario = 2,
                             Email = "comum@email.com",
-                            Senha = "1234",
+                            Senha = "0123456789",
                             IdTiposUsuario = 2
                         }
                     );
